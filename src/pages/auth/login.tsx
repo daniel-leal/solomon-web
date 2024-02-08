@@ -19,7 +19,7 @@ export function Login() {
             <h1 className="text-2xl font-semibold tracking-tighter">
               Acessar Painel
             </h1>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-sm text-muted-foreground">
               Acompanhe suas finanças pelo painel
             </p>
           </div>
