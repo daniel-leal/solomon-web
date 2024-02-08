@@ -1,4 +1,4 @@
-import { DollarSign, LineChart, ReceiptText } from 'lucide-react'
+import { BadgeDollarSign, LineChart, ReceiptText } from 'lucide-react'
 
 import { NavLink } from './nav-link'
 import { ThemeToggle } from './theme/theme-toggle'
@@ -8,7 +8,7 @@ export function Header() {
   return (
     <div className="border-b">
       <div className="flex h-16 items-center gap-6 px-6">
-        <DollarSign className="h-6 w-6" />
+        <BadgeDollarSign className="h-6 w-6" />
 
         <Separator orientation="vertical" className="h-6" />
 
@@ -17,7 +17,7 @@ export function Header() {
             <LineChart className="h-4 w-4" />
             Dashboard
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/transactions">
             <ReceiptText className="h-4 w-4" />
             Transações
           </NavLink>

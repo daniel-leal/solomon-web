@@ -73,12 +73,8 @@ export function RevenueExpenseChart() {
                   color: '#fff',
                 }}
               />
-              <Bar
-                dataKey="revenue"
-                name="Receitas"
-                fill={colors.emerald[500]}
-              />
-              <Bar dataKey="expense" name="Despesas" fill={colors.rose[500]} />
+              <Bar dataKey="revenue" name="Receitas" fill={colors.teal[600]} />
+              <Bar dataKey="expense" name="Despesas" fill={colors.rose[600]} />
             </BarChart>
           </ResponsiveContainer>
         )}
