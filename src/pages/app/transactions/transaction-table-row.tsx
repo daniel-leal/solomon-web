@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import { TableCell, TableRow } from '@/components/ui/table'
 
+import { TransactionDetails } from './transaction-details'
+
 export interface TransactionTableRowProps {
   transaction: {
     transaction_id: string
@@ -37,6 +39,8 @@ export function TransactionTableRow({ transaction }: TransactionTableRowProps) {
               <span className="sr-only">Detalhes do pedido</span>
             </Button>
           </DialogTrigger>
+
+          <TransactionDetails open={isDetailsOpen} />
         </Dialog>
       </TableCell>
       <TableCell className={`light:font-semibold ${descriptionColor}`}>

@@ -49,6 +49,22 @@ export function TransactionTableFilters({
 
             <Select>
               <SelectTrigger className="flex-grow">
+                <SelectValue placeholder="Cartões de crédito" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="all">Todos os cartões</SelectItem>
+                  <SelectItem value="nubank">Nubank</SelectItem>
+                  <SelectItem value="itau">Itaú Click</SelectItem>
+                  <SelectItem value="visa">Visa Infinity</SelectItem>
+                  <SelectItem value="inter">Inter</SelectItem>
+                  <SelectItem value="porto">Porto Seguro</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
+            <Select>
+              <SelectTrigger className="flex-grow">
                 <SelectValue placeholder="Classificação" />
               </SelectTrigger>
               <SelectContent>
@@ -81,10 +97,10 @@ export function TransactionTableFilters({
                 <SelectGroup>
                   <SelectItem value="all">Todas categorias</SelectItem>
                   <SelectItem value="fixed">Transporte</SelectItem>
-                  <SelectItem value="variable">Alimentação</SelectItem>
-                  <SelectItem value="variable">Moradia</SelectItem>
-                  <SelectItem value="variable">Lazer</SelectItem>
-                  <SelectItem value="variable">Utensílios</SelectItem>
+                  <SelectItem value="alimentacao">Alimentação</SelectItem>
+                  <SelectItem value="moradia">Moradia</SelectItem>
+                  <SelectItem value="lazer">Lazer</SelectItem>
+                  <SelectItem value="utensilios">Utensílios</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -109,6 +125,7 @@ export function TransactionTableFilters({
                 registros por página
               </span>
             </div>
+
             <div className="flex gap-4">
               <Button variant="secondary" type="submit">
                 <Search className="mr-2 h-4 w-4" />
