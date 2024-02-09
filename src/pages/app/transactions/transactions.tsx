@@ -2,6 +2,7 @@ import { FileSpreadsheet, Filter, Plus, Sheet, SheetIcon } from 'lucide-react'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 
+import { Pagination } from '@/components/pagination'
 import { Button } from '@/components/ui/button'
 import {
   Table,
@@ -191,6 +192,15 @@ export function Transactions() {
               </TableFooter>
             </Table>
           </div>
+
+          <Pagination
+            onPageChange={() => {
+              Promise<void>
+            }}
+            pageIndex={0}
+            perPage={10}
+            totalCount={200}
+          />
         </div>
       </div>
     </>
