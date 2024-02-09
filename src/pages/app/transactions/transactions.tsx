@@ -1,9 +1,18 @@
-import { FileSpreadsheet, Filter, Plus, Sheet, SheetIcon } from 'lucide-react'
+import { FileSpreadsheet, Filter, Plus } from 'lucide-react'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { Pagination } from '@/components/pagination'
 import { Button } from '@/components/ui/button'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Sheet, SheetTrigger } from '@/components/ui/sheet'
 import {
   Table,
   TableBody,
@@ -14,6 +23,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
+import { TransactionSheetFilters } from './transaction.sheet-filters'
 import { TransactionTableFilters } from './transaction-table-filters'
 import { TransactionTableRow } from './transaction-table-row'
 
@@ -115,26 +125,46 @@ const result: TransactionTableRowProps = {
 }
 
 export function Transactions() {
-  const [isFilterOpen, setIsFilterOpen] = useState(false)
-
   return (
     <>
       <Helmet title="Transações" />
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-row justify-between">
-          <div className="pb-5 text-3xl font-bold tracking-tight text-emerald-700 dark:text-emerald-600">
-            Transações
+      <div className="flex flex-col gap-3">
+        <div className="pb-5 text-3xl font-bold tracking-tight text-emerald-700 dark:text-emerald-600">
+          Transações
+        </div>
+
+        <div className="flex flex-row justify-between gap-4">
+          <div className="flex flex-row items-baseline gap-2">
+            <Select defaultValue="5">
+              <SelectTrigger className="flex-grow">
+                <SelectValue></SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="5">5</SelectItem>
+                  <SelectItem value="10">10</SelectItem>
+                  <SelectItem value="15">15</SelectItem>
+                  <SelectItem value="30">30</SelectItem>
+                  <SelectItem value="50">50</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <span className="text-nowrap text-xs text-muted-foreground">
+              registros por página
+            </span>
           </div>
 
-          <div className="flex flex-row items-center gap-4">
-            <Button
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-              variant="outline"
-              type="button"
-            >
-              <Filter className="mr-2 h-4 w-4" />
-              Filtros
-            </Button>
+          <div className="flex flex-row gap-4">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" type="button">
+                  <Filter className="mr-2 h-4 w-4" />
+                  Filtros
+                </Button>
+              </SheetTrigger>
+
+              <TransactionSheetFilters />
+            </Sheet>
 
             <Button variant="outline" type="button">
               <FileSpreadsheet className="mr-2 h-4 w-4" />
@@ -147,8 +177,6 @@ export function Transactions() {
             </Button>
           </div>
         </div>
-
-        <TransactionTableFilters visible={isFilterOpen} />
 
         <div className="space-y-5">
           <div className="rounded-md border">
