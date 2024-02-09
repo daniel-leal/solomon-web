@@ -1,4 +1,4 @@
-import { Filter, Plus } from 'lucide-react'
+import { FileSpreadsheet, Filter, Plus, Sheet, SheetIcon } from 'lucide-react'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 
@@ -131,11 +131,17 @@ export function Transactions() {
               variant="outline"
               type="button"
             >
-              <Filter className="h-4" />
+              <Filter className="mr-2 h-4 w-4" />
+              Filtros
+            </Button>
+
+            <Button variant="outline" type="button">
+              <FileSpreadsheet className="mr-2 h-4 w-4" />
+              Exportar
             </Button>
 
             <Button type="button">
-              <Plus className="mr-2 h-5 w-5" />
+              <Plus className="mr-2 h-4 w-4" />
               Nova transação
             </Button>
           </div>
